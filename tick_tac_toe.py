@@ -205,12 +205,9 @@ if __name__ == "__main__":
             o_player = Player(Player.HUMAN, o_player_name, Player.O)
 
         if x_player_name == "ai":
-            if o_player_name == "ai":
-                temp_names = deepcopy(Player.AI_NAMES)
-                temp_names.remove(o_player.name)
-                x_player = Player(Player.AI, choice(temp_names), Player.X)
-            else:
-                x_player = Player(Player.AI, choice(Player.AI_NAMES), Player.X)
+            temp_names = deepcopy(Player.AI_NAMES)
+            temp_names.remove(o_player.name)
+            x_player = Player(Player.AI, choice(temp_names), Player.X)
         else:
             x_player = Player(Player.HUMAN, x_player_name, Player.X)
 
