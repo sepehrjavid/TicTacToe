@@ -192,5 +192,32 @@ class TicTacToe(object):
 
 
 if __name__ == "__main__":
-    game = TicTacToe([Player(Player.HUMAN, "Sep", Player.X), Player(Player.AI, "Alex", Player.O)])
-    game.run()
+    play_again = True
+    while play_again:
+        o_player_name = input(
+            "Enter the player name to play O: (type 'ai' if you want it to be Artificial Intelligence)\n")
+        x_player_name = input(
+            "Enter the player name to play X: (type 'ai' if you want it to be Artificial Intelligence)\n")
+
+        if o_player_name == "ai":
+            o_player = Player(Player.AI, choice(Player.AI_NAMES), Player.O)
+        else:
+            o_player = Player(Player.HUMAN, o_player_name, Player.O)
+
+        if x_player_name == "ai":
+            if o_player_name == "ai":
+                temp_names = deepcopy(Player.AI_NAMES)
+                temp_names.remove(o_player.name)
+                x_player = Player(Player.AI, choice(temp_names), Player.X)
+            else:
+                x_player = Player(Player.AI, choice(Player.AI_NAMES), Player.X)
+        else:
+            x_player = Player(Player.HUMAN, x_player_name, Player.X)
+
+        game = TicTacToe([x_player, o_player])
+        game.run()
+
+        again = input("Wanna play again? (y/n) \n")
+        play_again = again == "y"
+
+    print("Thanks for playing")

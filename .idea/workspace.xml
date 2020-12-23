@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41e59de6-5aed-4637-b805-dc48e666942a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exceptions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tick_tac_toe.py" beforeDir="false" afterPath="$PROJECT_DIR$/tick_tac_toe.py" afterDir="false" />
     </list>
@@ -86,7 +84,8 @@
       <workItem from="1608576914781" duration="3998000" />
       <workItem from="1608706773638" duration="1338000" />
       <workItem from="1608725402038" duration="3036000" />
-      <workItem from="1608728491286" duration="2139000" />
+      <workItem from="1608728491286" duration="2244000" />
+      <workItem from="1608751169221" duration="1769000" />
     </task>
     <servers />
   </component>
@@ -98,7 +97,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -106,6 +107,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/hw5$tick_tac_toe.coverage" NAME="tick_tac_toe Coverage Results" MODIFIED="1608728339389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/TicTacToe$tick_tac_toe.coverage" NAME="tick_tac_toe Coverage Results" MODIFIED="1608731163586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TicTacToe$tick_tac_toe.coverage" NAME="tick_tac_toe Coverage Results" MODIFIED="1608731222337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
