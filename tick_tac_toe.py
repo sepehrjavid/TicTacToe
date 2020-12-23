@@ -1,6 +1,8 @@
 from copy import deepcopy
 from random import choice
 
+from exceptions import NotEmptySpotException
+
 
 class Board(object):
     EMPTY = ""
@@ -34,7 +36,10 @@ class Board(object):
         return True, None
 
     def update_board(self, move, player):
-        self.values[move[0]][move[1]] = player.peace
+        if self.values[move[0]][move[1]] == self.EMPTY:
+            self.values[move[0]][move[1]] = player.peace
+        else:
+            raise NotEmptySpotException
 
     def get_empty_spots(self):
         lst = []
@@ -82,6 +87,7 @@ class Player(object):
     HUMAN = "Human"
     X = "X"
     O = "O"
+    AI_NAMES = ["Alex", "Abbey"]
 
     def __init__(self, player_type, player_name, player_peace):
         self.type = player_type
@@ -102,7 +108,7 @@ class Player(object):
             best_score, best_move = self.think(initial_node, opponent)
             return best_move
 
-    def think(self, current_node, opponent):
+    def think(self, current_node, opponent, parent_best=None):
         best_move = []
         if current_node.min_or_max == GameNode.MIN:
             best_score = 2
@@ -129,16 +135,22 @@ class Player(object):
                     best_move = move
 
             if new_node.score is None:
-                possible_best_score, possible_best_move = self.think(new_node, opponent)
+                possible_best_score, possible_best_move = self.think(new_node, opponent, best_score)
 
                 if current_node.min_or_max == GameNode.MAX:
                     if best_score <= possible_best_score:
                         best_score = possible_best_score
                         best_move = move
+
+                    if parent_best is not None and best_score >= parent_best:
+                        break
                 else:
                     if best_score >= possible_best_score:
                         best_score = possible_best_score
                         best_move = move
+
+                    if parent_best is not None and best_score <= parent_best:
+                        break
 
         return best_score, best_move
 
@@ -157,7 +169,12 @@ class TicTacToe(object):
         while not self.is_finished():
             self.board.print()
             move = current_player.make_move(self.board, self.players[1 - self.players.index(current_player)])
-            self.board.update_board(move, current_player)
+            try:
+                self.board.update_board(move, current_player)
+            except NotEmptySpotException as e:
+                print(e.message)
+                continue
+
             current_player = self.players[1 - self.players.index(current_player)]
 
         self.board.print()
